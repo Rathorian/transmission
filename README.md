@@ -1,5 +1,8 @@
 # rathorian/transmission
-Docker image for Transmission based on Alpine Linux
+
+[![](https://github.com/rathorian/transmission/workflows/build/badge.svg)](https://github.com/rathorian/transmission/actions)
+[![](https://img.shields.io/docker/pulls/rathorian/transmission)](https://hub.docker.com/r/rathorian/transmission)
+[![](https://img.shields.io/docker/stars/rathorian/transmission)](https://hub.docker.com/r/rathorian/transmission)
 
 ## Features
 
@@ -88,4 +91,4 @@ URL: http://xx.xx.xx.xx:9091
 
 ## License
 
-Docker image [rathorian/transmission](#) is released under [MIT License](https://github.com/Rathorian/transmission/blob/main/LICENSE).
+Docker image [rathorian/transmission](https://hub.docker.com/r/rathorian/transmission) is released under [MIT License](https://github.com/Rathorian/transmission/blob/main/LICENSE).
