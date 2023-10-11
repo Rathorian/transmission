@@ -24,8 +24,8 @@
 
 #### Usage TRANSMISSION_WEB_HOME
 
- - `/flood-for-transmission` : value to use for flood-for-transmission
- - `/trguing` : value to use for trguing
+ - `/config/flood-for-transmission` : value to use for flood-for-transmission
+ - `/config/trguing` : value to use for trguing
 
  If the TRANSMISSION_WEB_HOME variable is not defined, the WebUI used by default will be that of Transmission.
 
