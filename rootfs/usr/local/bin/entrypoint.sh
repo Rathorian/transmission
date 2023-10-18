@@ -50,21 +50,23 @@ if [ ! -f /config/settings.json ]; then
 fi
 f_log SUC "Done"
 
-if [ -n "${TRANSMISSION_WEB_HOME}" -a "${TRANSMISSION_WEB_HOME}" = "/config/flood-for-transmission" ]; then
+if [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/flood-for-transmission" ]; then
   f_log INF "Installing WebUI : flood-for-transmission... "
-  mkdir -p /config/flood-for-transmission
-  wget https://github.com/johman10/flood-for-transmission/releases/download/latest/flood-for-transmission.tar.gz -O /config/flood-for-transmission/flood-for-transmission.tar.gz >> /tmp/webui.log 2>&1
-  cd /config/flood-for-transmission
+  mkdir -p /flood-for-transmission
+  cd /flood-for-transmission
+  wget https://github.com/johman10/flood-for-transmission/releases/download/latest/flood-for-transmission.tar.gz -O /flood-for-transmission/flood-for-transmission.tar.gz >> /tmp/webui.log 2>&1
   tar -xf flood-for-transmission.tar.gz --strip-components=1
   rm -rf flood-for-transmission.tar.gz
+  chown -R "${PUID}:${PGID}" /flood-for-transmission
   f_log SUC "Done"
-elif [ -n "${TRANSMISSION_WEB_HOME}" -a "${TRANSMISSION_WEB_HOME}" = "/config/trguing" ]; then
+elif [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/trguing" ]; then
   f_log INF "Installing WebUI : TrguiNG... "
-  mkdir -p /config/trguing
-  wget https://github.com/openscopeproject/TrguiNG/releases/download/v0.9.0/trguing-web-v0.9.0.zip -O /config/trguing/trguing-web-v0.9.0.zip >> /tmp/webui.log 2>&1
-  cd /config/trguing
+  mkdir -p /trguing
+  cd /trguing
+  wget https://github.com/openscopeproject/TrguiNG/releases/download/v0.9.0/trguing-web-v0.9.0.zip -O /trguing/trguing-web-v0.9.0.zip >> /tmp/webui.log 2>&1
   unzip trguing-web-v0.9.0.zip >> /tmp/webui.log 2>&1
   rm -rf trguing-web-v0.9.0.zip
+  chown -R "${PUID}:${PGID}" /trguing
   f_log SUC "Done"
 fi
 
