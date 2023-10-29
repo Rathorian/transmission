@@ -63,9 +63,9 @@ elif [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/trgui
   f_log INF "Installing WebUI : TrguiNG... "
   mkdir -p /trguing
   cd /trguing
-  wget https://github.com/openscopeproject/TrguiNG/releases/download/v0.9.0/trguing-web-v0.9.0.zip -O /trguing/trguing-web-v0.9.0.zip >> /tmp/webui.log 2>&1
-  unzip trguing-web-v0.9.0.zip >> /tmp/webui.log 2>&1
-  rm -rf trguing-web-v0.9.0.zip
+  wget https://github.com/openscopeproject/TrguiNG/releases/download/v${TRGUING_VERSION}/trguing-web-v${TRGUING_VERSION}.zip -O /trguing/trguing-web-v${TRGUING_VERSION}.zip >> /tmp/webui.log 2>&1
+  unzip trguing-web-v${TRGUING_VERSION}.zip >> /tmp/webui.log 2>&1
+  rm -rf trguing-web-v${TRGUING_VERSION}.zip
   chown -R "${PUID}:${PGID}" /trguing
   f_log SUC "Done"
 fi

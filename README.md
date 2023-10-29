@@ -20,6 +20,7 @@
 | **PUID** | Choose uid for transmission launch | *optional* | 1000
 | **PGID** | Choose gid for transmission launch | *optional* | 1000
 | **TZ** | Setting the timezone | *optional* | Europe/Paris
+| **TRGUING_VERSION** | TrguiNG UI version | *optional* | 0.10.0
 | **TRANSMISSION_WEB_HOME** | Choose your WebUI | *optional* | default
 
 #### Usage TRANSMISSION_WEB_HOME
