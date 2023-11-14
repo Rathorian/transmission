@@ -23,4 +23,4 @@ EXPOSE 9091 51413 51413/udp
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-CMD ["/bin/sh", "-c", "/usr/bin/transmission-daemon --foreground --config-dir /config"]
+CMD ["/usr/bin/transmission-daemon --foreground --config-dir /config"]
