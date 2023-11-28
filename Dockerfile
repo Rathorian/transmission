@@ -6,7 +6,7 @@ LABEL description="Transmission based on Alpine Linux" \
 ENV PUID=1000 \
     PGID=1000 \
     TZ=Europe/Paris \
-    TRGUING_VERSION=0.10.0
+    TRGUING_VERSION=1.0.0
 
 RUN apk add --update --no-cache \
     su-exec \
