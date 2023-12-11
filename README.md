@@ -7,7 +7,7 @@
 ## Features
 
  - Platform image: `linux/amd64`, `linux/arm64`
- - Based on Alpine Linux 3.18
+ - Based on Alpine Linux 3.19
  - No root process
  - Selectable transmission web user interface: Default, [Flood for Transmission](https://github.com/johman10/flood-for-transmission), [TrguiNG](https://github.com/openscopeproject/TrguiNG)
 
