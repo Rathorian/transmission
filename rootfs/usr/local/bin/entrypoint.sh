@@ -50,7 +50,7 @@ if [ ! -f /config/settings.json ]; then
 fi
 f_log SUC "Done"
 
-if [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" == "/flood-for-transmission" ]; then
+if [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/flood-for-transmission" ]; then
   f_log INF "Installing WebUI : flood-for-transmission... "
   mkdir -p /flood-for-transmission
   cd /flood-for-transmission
@@ -59,7 +59,7 @@ if [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" == "/flood-
   rm -rf flood-for-transmission.tar.gz
   chown -R "${PUID}:${PGID}" /flood-for-transmission
   f_log SUC "Done"
-elif [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" == "/trguing" ]; then
+elif [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/trguing" ]; then
   f_log INF "Installing WebUI : TrguiNG... "
   mkdir -p /trguing
   cd /trguing
