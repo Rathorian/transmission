@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.19
 
 LABEL description="Transmission based on Alpine Linux" \
       maintainer="Rathorian <contact@psn-nw.fr>"
