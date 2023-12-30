@@ -45,8 +45,8 @@ mkdir -p /transmission/downloads /transmission/incomplete /transmission/watch /c
 f_log SUC "Done"
 
 f_log INF "Copying the Transmission configuration file... "
-if [ ! -f /config/settings.json ]; then
-  cp /defaults/settings.json /config/settings.json
+if [ ! -a /config/settings.json ]; then
+  ln -s /defaults/settings.json /config/settings.json
 fi
 f_log SUC "Done"
 
