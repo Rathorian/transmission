@@ -51,9 +51,7 @@ fi
 f_log SUC "Done"
 
 if [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/flood-for-transmission" ]; then
-  if [ -d /trguing ]; then
-    rm -rf /trguing
-  fi
+  if [ -d /trguing ]; then rm -rf /trguing; fi
   f_log INF "Installing WebUI : flood-for-transmission... "
   mkdir -p /flood-for-transmission
   cd /flood-for-transmission
@@ -63,9 +61,7 @@ if [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/flood-f
   chown -R "${PUID}:${PGID}" /flood-for-transmission
   f_log SUC "Done"
 elif [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/trguing" ]; then
-  if [ -d /flood-for-transmission ]; then
-    rm -rf /flood-for-transmission
-  fi
+  if [ -d /flood-for-transmission ]; then rm -rf /flood-for-transmission; fi
   f_log INF "Installing WebUI : TrguiNG... "
   mkdir -p /trguing
   cd /trguing
