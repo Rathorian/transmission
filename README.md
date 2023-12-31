@@ -20,6 +20,7 @@
 | **PUID** | Choose uid for transmission launch | *optional* | 1000
 | **PGID** | Choose gid for transmission launch | *optional* | 1000
 | **TZ** | Setting the timezone | *optional* | Europe/Paris
+| **PEER_PORT** | Peer port | *optional* | 51413
 | **TRGUING_VERSION** | TrguiNG UI version | *optional* | 1.1.0
 | **TRANSMISSION_WEB_HOME** | Choose your WebUI | *optional* | default
 

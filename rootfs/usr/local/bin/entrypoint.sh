@@ -2,7 +2,6 @@
 
 CSI="\033["
 CEND="${CSI}0m"
-CRED="${CSI}1;31m"
 CGREEN="${CSI}1;32m"
 CBLUE="${CSI}1;34m"
 
@@ -16,9 +15,6 @@ f_log() {
     ;;
     "SUC")
       echo -e "${CGREEN}${LOG_MESSAGE}${CEND}"
-    ;;
-    "ERR")
-      echo -e "${CRED}[$(date +%Y/%m/%d-%H:%M:%S)] ${LOG_MESSAGE}${CEND}"
     ;;
   esac
 }
@@ -45,8 +41,8 @@ mkdir -p /transmission/downloads /transmission/incomplete /transmission/watch /c
 f_log SUC "Done"
 
 f_log INF "Copying the Transmission configuration file... "
-if [ ! -a /config/settings.json ]; then
-  ln -s /defaults/settings.json /config/settings.json
+if [ ! -e /config/settings.json ]; then
+  cp /defaults/settings.json /config/settings.json
 fi
 f_log SUC "Done"
 
@@ -68,12 +64,12 @@ elif [ -n "${TRANSMISSION_WEB_HOME}" ] && [ "${TRANSMISSION_WEB_HOME}" = "/trgui
   wget https://github.com/openscopeproject/TrguiNG/releases/download/v${TRGUING_VERSION}/trguing-web-v${TRGUING_VERSION}.zip -O /trguing/trguing-web-v${TRGUING_VERSION}.zip >> /tmp/webui.log 2>&1
   unzip trguing-web-v${TRGUING_VERSION}.zip >> /tmp/webui.log 2>&1
   rm -rf trguing-web-v${TRGUING_VERSION}.zip
-  chown -R "${PUID}:${PGID}" /trguing
+  chown -R "${PUID}":"${PGID}" /trguing
   f_log SUC "Done"
 fi
 
 f_log INF "Assigning torrent user rights... "
-chown -R "${PUID}:${PGID}" /defaults /config /transmission
+chown -R "${PUID}":"${PGID}" /defaults /config /transmission
 f_log SUC "Done"
 
-exec su-exec "${PUID}:${PGID}" "$@"
+exec su-exec "${PUID}":"${PGID}" /usr/bin/transmission-daemon --foreground --config-dir /config --peerport "${PEER_PORT}"
