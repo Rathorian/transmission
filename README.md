@@ -9,7 +9,27 @@
  - Platform image: `linux/amd64`, `linux/arm64`
  - Based on Alpine Linux 3.19
  - No root process
- - WebUI available for use: [Flood for Transmission](https://github.com/johman10/flood-for-transmission), [TrguiNG](https://github.com/openscopeproject/TrguiNG)
+ - WebUI available for use: [TrguiNG](https://github.com/openscopeproject/TrguiNG)
+
+## Build image
+
+### Build arguments
+
+| Argument | Description | Type | Default value |
+| -------- | ----------- | ---- | ------------- |
+| **TRGUING_VERSION** | TrguiNG version | *optional* | 1.1.0
+
+### build
+
+```sh
+docker build --tag rathorian/transmission:latest https://github.com/Rathorian/transmission.git
+```
+
+### Build with arguments
+
+```sh
+docker build --tag rathorian/transmission:latest --build-arg TRGUING_VERSION=1.1.0 https://github.com/Rathorian/transmission.git
+```
 
 ## Configuration
 
@@ -21,15 +41,7 @@
 | **PGID** | Choose gid for transmission launch | *optional* | 1000
 | **TZ** | Setting the timezone | *optional* | Europe/Paris
 | **PEER_PORT** | Peer port | *optional* | 51413
-| **TRGUING_VERSION** | TrguiNG UI version | *optional* | 1.1.0
-| **TRANSMISSION_WEB_HOME** | Choose your WebUI | *optional* | default
-
-#### Usage TRANSMISSION_WEB_HOME
-
- - `/flood-for-transmission` : value to use for flood-for-transmission
- - `/trguing` : value to use for trguing
-
- If the TRANSMISSION_WEB_HOME variable is not defined, the WebUI used by default will be that of Transmission.
+| **TRANSMISSION_WEB_HOME** | Choose your WebUI | *optional* | /trguing
 
 ### Volumes
 
@@ -58,6 +70,7 @@ docker run --name transmission -dt \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/Paris \
+  -e PEER_PORT=51413 \
   -p 9091:9091 \
   -p 51413:51413 \
   -p 51413:51413/udp \
@@ -81,6 +94,7 @@ services:
       - "PUID=1000"
       - "PGID=1000"
       - "TZ=Europe/Paris"
+      - "PEER_PORT=51413"
     volumes:
       - "/mnt/docker/transmission/config:/config"
       - "/mnt/docker/transmission/data:/transmission"
