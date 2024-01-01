@@ -20,7 +20,7 @@ RUN apk add --update --no-cache \
     # Install WebUI : TrguiNG
     && mkdir /trguing \
     && wget https://github.com/openscopeproject/TrguiNG/releases/download/v${TRGUING_VERSION}/trguing-web-v${TRGUING_VERSION}.zip -O /trguing/trguing-web.zip \
-    && unzip /trguing/trguing-web.zip \
+    && unzip -q /trguing/trguing-web.zip -d /trguing \
     && rm -rf /trguing/trguing-web.zip
 
 COPY rootfs /
