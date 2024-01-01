@@ -15,6 +15,8 @@ RUN apk add --update --no-cache \
     su-exec \
     transmission-daemon \
     tzdata \
+    unzip \
+    wget \
     # Install WebUI : TrguiNG
     && mkdir /trguing \
     && wget https://github.com/openscopeproject/TrguiNG/releases/download/v${TRGUING_VERSION}/trguing-web-v${TRGUING_VERSION}.zip -O /trguing/trguing-web.zip \
