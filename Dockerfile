@@ -21,7 +21,9 @@ RUN apk add --update --no-cache \
     && mkdir /trguing \
     && wget https://github.com/openscopeproject/TrguiNG/releases/download/v${TRGUING_VERSION}/trguing-web-v${TRGUING_VERSION}.zip -O /trguing/trguing-web.zip \
     && unzip -q /trguing/trguing-web.zip -d /trguing \
-    && rm -rf /trguing/trguing-web.zip
+    && rm -rf /trguing/trguing-web.zip \
+    # Cleanup
+    && apk del --purge unzip wget
 
 COPY rootfs /
 
